@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Pedido</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Criar Novo Pedido</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/financeiro">Financeiro</a></li>
+                <li><a href="/rh">Recursos Humanos</a></li>
+                <li><a href="/estoque">Estoque</a></li>
+                <li><a href="/pedidos">Pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <form action="/pedidos" method="POST">
+            <div class="form-group">
+                <label for="produto_id">Produto:</label>
+                <select id="produto_id" name="produto_id" required>
+                    <option value="">Selecione um produto</option>
+                    <!-- A lista de produtos pode ser preenchida dinamicamente -->
+                    <option value="1">Produto 1</option>
+                    <option value="2">Produto 2</option>
+                    <option value="3">Produto 3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" required min="1">
+            </div>
+
+            <div class="form-group">
+                <label for="valor">Valor:</label>
+                <input type="text" id="valor" name="valor" required readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="prazo_entrega">Prazo de Entrega:</label>
+                <input type="date" id="prazo_entrega" name="prazo_entrega" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Criar Pedido</button>
+        </form>
+    </main>
+</body>
+</html>
